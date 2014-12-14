@@ -1,0 +1,38 @@
+<routes>
+    <root to="Index#index" />
+
+    <controller name="Comment">
+    	<get path="/comment/" to="index" />
+    	<get path="/comment/list" to="list" />
+    	<get path="/comment/search" to="search" />
+		<get path="/comment/input" to="input" />
+		<post path="/comment/create" to="create" />
+		<get path="/comment/statistical/:roomId" to="statistical" />
+		<post path="/comment/countChart/" to="countChart" />
+		<post path="/comment/findComment/" to="findComment" />
+		<get path="/comment/download/:roomId" to="download" />
+    </controller>
+    <controller name="Login">
+    	<get path="/login/" to="index" />
+    	<get path="/login/input/" to="input" />
+    	<post path="/login/login/" to="login" />
+    	<get path="/logout" to="logout" />
+    </controller>
+    <controller name="Schedule">
+    	<get path="/schedule/:roomId" to="index" />
+    	<get path="/schedule/list/:roomId" to="list" />
+    	<get path="/schedule/input/:roomId" to="input" />
+    	<post path="/schedule/create/:roomId" to="create" />
+    	<get path="/schedule/edit/:scheduleId" to="edit" />
+    	<post path="/schedule/update/:scheduleId" to="update" />
+    	<get path="/schedule/destory/:scheduleId" to="destory" />
+    </controller>
+    <controller name="Room">
+    	<get path="/room/:roomId" to="show" />
+    	<get path="/room/input" to="input" />
+    	<post path="/room/create" to="create" />
+    	<get path="/room/edit/:roomId" to="edit" />
+    	<post path="/room/update/:roomId" to="update" />
+    	<get path="/room/destory/:roomId" to="destory" />
+    </controller>
+</routes>
