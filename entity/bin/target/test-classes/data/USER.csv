@@ -1,0 +1,3 @@
+USER_ID,USER_NAME,PASSWORD,SALT,IS_ADMIN
+1,admin,824948bb6dce5d4aea9db93fa53f7797,q<M)gwCac(,1
+2,guest,0e71aae66f3d5d8d6d60af8aa4aabfa0,"{(""}r0BU$~",0

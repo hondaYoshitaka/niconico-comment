@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+	"http://www.seasar.org/dtd/components24.dtd">
+<components>
+	<include path="convention.dicon"/>
+	<include path="aop.dicon"/>
+	<include path="j2ee.dicon"/>
+	<include path="s2jdbc.dicon"/>
+	
+	<include path="dbsession.dicon"/>
+	<include path="chronos-extension.dicon"/>
+	<include path="csvConfig.dicon"/>
+	
+	<component name="actionMessagesThrowsInterceptor" class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor"/>
+	
+	<!-- server起動後の初期処理 -->
+	<component class="jp.niconico.comment.action.BannedWordAction">
+		<initMethod name="load"></initMethod>
+	</component>
+</components>
