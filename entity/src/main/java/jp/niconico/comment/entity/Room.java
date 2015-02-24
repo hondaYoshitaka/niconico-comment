@@ -40,6 +40,10 @@ public class Room implements Serializable {
     @OneToMany(mappedBy = "room")
     public List<Comment> commentList;
 
+    /** likeRoomList関連プロパティ */
+    @OneToMany(mappedBy = "room")
+    public List<LikeRoom> likeRoomList;
+
     /** scheduleList関連プロパティ */
     @OneToMany(mappedBy = "room")
     public List<Schedule> scheduleList;

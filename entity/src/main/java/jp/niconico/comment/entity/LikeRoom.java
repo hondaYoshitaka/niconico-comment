@@ -18,40 +18,31 @@ import javax.persistence.Table;
  */
 @Generated("GSP")
 @Entity
-@Table(name = "comment")
-public class Comment implements Serializable {
+@Table(name = "like_room")
+public class LikeRoom implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** COMMENT_ID */
+    /** LIKE_ROOM_ID */
     @Id
     @GeneratedValue(generator = "generator", strategy = GenerationType.AUTO)
     @Column(precision = 19, nullable = false, unique = true)
-    public Long commentId;
-
-    /** COMMENT */
-    @Column(length = 140, nullable = false, unique = false)
-    public String comment;
-
-    /** COMMENT_DATETIME */
-    @Column(nullable = true, unique = false)
-    public Timestamp commentDatetime;
-
-    /** USER_ID */
-    @Column(precision = 19, nullable = false, unique = false)
-    public Long userId;
+    public Long likeRoomId;
 
     /** ROOM_ID */
     @Column(precision = 19, nullable = false, unique = false)
     public Long roomId;
 
+    /** LIKED_BY */
+    @Column(length = 255, nullable = false, unique = false)
+    public String likedBy;
+
+    /** LIKED_DATETIME */
+    @Column(nullable = false, unique = false)
+    public Timestamp likedDatetime;
+
     /** room関連プロパティ */
     @ManyToOne
     @JoinColumn(name = "ROOM_ID", referencedColumnName = "ROOM_ID")
     public Room room;
-
-    /** user関連プロパティ */
-    @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
-    public User user;
 }

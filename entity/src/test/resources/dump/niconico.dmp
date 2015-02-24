@@ -1,0 +1,213 @@
+-- MySQL dump 10.13  Distrib 5.6.19, for Win32 (x86)
+--
+-- Host: localhost    Database: niconico
+-- ------------------------------------------------------
+-- Server version	5.6.19
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `banned_word`
+--
+
+DROP TABLE IF EXISTS `banned_word`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `banned_word` (
+  `BANNED_WORD_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'BANNED_WORD_ID',
+  `WORD` varchar(255) DEFAULT NULL COMMENT 'WORD',
+  PRIMARY KEY (`BANNED_WORD_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8 COMMENT='BANNED_WORD(R)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `banned_word`
+--
+
+LOCK TABLES `banned_word` WRITE;
+/*!40000 ALTER TABLE `banned_word` DISABLE KEYS */;
+INSERT INTO `banned_word` VALUES (1,'アイヌ人'),(2,'ｱｲﾇ人'),(3,'アイヌ犬'),(4,'ｱｲﾇ犬'),(5,'アオカン'),(6,'ｱｵｶﾝ'),(7,'あきめくら'),(8,'アメ公'),(9,'ｱﾒ公'),(10,'伊勢こじき'),(11,'イタ公'),(12,'犬殺し'),(13,'淫売'),(14,'穢多'),(15,'おわい屋'),(16,'過去帳'),(17,'かたわ'),(18,'がちゃめ'),(19,'かつぎ屋'),(20,'キチガイ'),(21,'ｷﾁｶﾞｲ'),(22,'きんたま'),(23,'くず屋'),(24,'くそ'),(25,'首切り'),(26,'クロンボ'),(27,'ｸﾛﾝﾎﾞ'),(28,'くわえこむ'),(29,'毛唐'),(30,'ゴミ屋'),(31,'ｺﾞﾐ屋'),(32,'雑役夫'),(33,'山窩'),(34,'三助'),(35,'産婆'),(36,'ジャップ'),(37,'ｼﾞｬｯﾌﾟ'),(38,'植物人間'),(39,'新平民'),(40,'スケコマシ'),(41,'ｽｹｺﾏｼ'),(42,'せむし'),(43,'鮮人'),(44,'第三国'),(45,'第三国人'),(46,'大道芸人'),(47,'タコ部屋'),(48,'立ちん坊'),(49,'朝鮮征伐'),(50,'チャンコロ'),(51,'ﾁｬﾝｺﾛ'),(52,'チンバ'),(53,'ﾁﾝﾊﾞ'),(54,'つんぼ'),(55,'つんぼ桟敷'),(56,'出稼ぎ'),(57,'出戻り'),(58,'土方'),(59,'哲齦迫雕�'),(60,'屠殺'),(61,'屠殺場'),(62,'土人'),(63,'どもり'),(64,'トルコ嬢'),(65,'ﾄﾙｺ嬢'),(66,'南鮮'),(67,'ニガー'),(68,'ﾆｶﾞｰ'),(69,'ニグロ'),(70,'ニコヨン'),(71,'ﾆｺﾖﾝ'),(72,'バタ屋'),(73,'馬丁'),(74,'パン助'),(75,'ﾊﾟﾝ助'),(76,'パンマ'),(77,'ﾊﾟﾝﾏ'),(78,'ビッコ'),(79,'ﾋﾞｯｺ'),(80,'ヒモ'),(81,'ﾋﾓ'),(82,'身元調査'),(83,'めくら'),(84,'ヤンキー'),(85,'ﾔﾝｷｰ'),(86,'ライ病'),(87,'ﾗｲ病'),(88,'ロスケ'),(89,'ﾛｽｹ'),(90,'ロンパリ'),(91,'ﾛﾝﾊﾟﾘ'),(92,'矮小'),(93,'犬取り'),(94,'裏日本'),(95,'エスキモー'),(96,'ｴｽｷﾓｰ'),(97,'沖仲仕'),(98,'落人部落'),(99,'河原者'),(100,'狂女狂人'),(101,'下男下女'),(102,'後進国'),(103,'興信所'),(104,'支那'),(105,'女給'),(106,'女工'),(107,'職工'),(108,'知恵遅れ'),(109,'低能'),(110,'ねこばば'),(111,'白痴'),(112,'ばくろう'),(113,'ちかめ'),(114,'ちんこ'),(115,'ちンこ'),(116,'ちﾝこ'),(117,'チンコ'),(118,'ﾁﾝｺ'),(119,'チんこ'),(120,'チンこ'),(121,'チﾝこ'),(122,'ﾁﾝこ'),(123,'チんコ'),(124,'チんｺ'),(125,'チんこ'),(126,'おちんこ'),(127,'おちンこ'),(128,'おちﾝこ'),(129,'おチンコ'),(130,'おﾁﾝｺ'),(131,'おチんこ'),(132,'おチンこ'),(133,'おチﾝこ'),(134,'おﾁﾝこ'),(135,'おチんコ'),(136,'おチんｺ'),(137,'おチんこ'),(138,'オちんこ'),(139,'オちンこ'),(140,'オちﾝこ'),(141,'オチンコ'),(142,'オﾁﾝｺ'),(143,'オチんこ'),(144,'オチンこ'),(145,'オチﾝこ'),(146,'オﾁﾝこ'),(147,'オチんコ'),(148,'オチんｺ'),(149,'オチんこ'),(150,'ｵちんこ'),(151,'ｵちンこ'),(152,'ｵちﾝこ'),(153,'ｵチンコ'),(154,'ｵﾁﾝｺ'),(155,'ｵチんこ'),(156,'ｵチンこ'),(157,'ｵチﾝこ'),(158,'ｵﾁﾝこ'),(159,'ｵチんコ'),(160,'ｵチんｺ'),(161,'ｵチんこ'),(162,'まんこ'),(163,'まンこ'),(164,'マンコ'),(165,'ﾏﾝｺ'),(166,'マンｺ'),(167,'マﾝｺ'),(168,'マんこ'),(169,'ﾏんこ'),(170,'マンこ'),(171,'マﾝこ'),(172,'マんコ'),(173,'ﾏんコ'),(174,'マんｺ'),(175,'マんこ'),(176,'ﾏんこ'),(177,'おまんこ'),(178,'おまンこ'),(179,'おマンコ'),(180,'おﾏﾝｺ'),(181,'おマンｺ'),(182,'おマﾝｺ'),(183,'おマんこ'),(184,'おﾏんこ'),(185,'おマンこ'),(186,'おマﾝこ'),(187,'おマんコ'),(188,'おﾏんコ'),(189,'おマんｺ'),(190,'おマんこ'),(191,'おﾏんこ'),(192,'まんこ'),(193,'まンこ'),(194,'オマンコ'),(195,'オﾏﾝｺ'),(196,'オマンｺ'),(197,'オマﾝｺ'),(198,'オマんこ'),(199,'オマンこ'),(200,'オマﾝこ'),(201,'オσ唐ｱ'),(202,'オマんコ'),(203,'オﾏんコ'),(204,'オマんｺ'),(205,'オマんこ'),(206,'オﾏんこ'),(207,'ｵまんこ'),(208,'ｵまンこ'),(209,'ｵマンコ'),(210,'ｵﾏﾝｺ'),(211,'ｵマンｺ'),(212,'ｵマﾝｺ'),(213,'ｵマんこ'),(214,'ｵﾏんこ'),(215,'ｵマンこ'),(216,'ｵマﾝこ'),(217,'ｵマんコ'),(218,'ｵﾏんコ'),(219,'ｵマんｺ'),(220,'ｵマんこ'),(221,'ｵﾏんこ'),(222,'うんこ'),(223,'ウンコ'),(224,'ｳﾝｺ'),(225,'馬鹿'),(226,'きちがい'),(227,'キチガイ'),(228,'ｷﾁｶﾞｲ'),(229,'気違い'),(230,'基地外'),(231,'文盲'),(232,'知障'),(233,'ヒッキー'),(234,'ﾋｯｷｰ'),(235,'低脳'),(236,'馬鹿野郎'),(237,'バカチョン'),(238,'ﾊﾞｶﾁｮﾝ'),(239,'阿呆'),(240,'目クラ'),(241,'目ｸﾗ'),(242,'ガイ児'),(243,'ｶﾞｲ児'),(244,'死ねよ'),(245,'死ネヨ'),(246,'死ﾈﾖ'),(247,'死ネバ'),(248,'死ﾈﾊﾞ'),(249,'キモオタ'),(250,'ｷﾓｵﾀ'),(251,'糞'),(252,'デムパ'),(253,'ﾃﾞﾑﾊﾟ'),(254,'DAMN'),(255,'ｄａｍｎ'),(256,'ＤＡＭＮ'),(257,'SHIT'),(258,'ｓｈｉｔ'),(259,'ＳＨＩＴ'),(260,'FUCK'),(261,'ｆｕｃｋ'),(262,'ＦＵＣＫ'),(263,'BITCH'),(264,'ｂｉｔｃｈ'),(265,'ＢＩＴＣＨ'),(266,'ペニス'),(267,'ﾍﾟﾆｽ'),(268,'ぺにす'),(269,'PENIS'),(270,'ｐｅｎｉｓ'),(271,'ＰＥＮＩＳ'),(272,'ヴァギナ'),(273,'ｳﾞｧｷﾞﾅ'),(274,'バギナ'),(275,'ばぎな'),(276,'ﾊﾞｷﾞﾅ'),(277,'ワギナ'),(278,'わぎな'),(279,'ﾜｷﾞﾅ'),(280,'VAGINA'),(281,'ｖａｇｉｎａ'),(282,'ＶＡＧＩＮＡ'),(283,'プッシー'),(284,'ﾌﾟｯｼｰ'),(285,'PUSSY'),(286,'ｐｕｓｓｙ'),(287,'ＰＵＳＳＹ'),(288,'クリトリス'),(289,'ｸﾘﾄﾘｽ'),(290,'くりとりす'),(291,'オメコ'),(292,'ｵﾒｺ'),(293,'おめこ'),(294,'スペルマ'),(295,'ｽﾍﾟﾙﾏ'),(296,'精子'),(297,'精液'),(298,'和姦'),(299,'フェラチオ'),(300,'オナニー'),(301,'ｵﾅﾆｰ');
+/*!40000 ALTER TABLE `banned_word` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comment` (
+  `COMMENT_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'COMMENT_ID',
+  `COMMENT` varchar(140) NOT NULL COMMENT 'COMMENT',
+  `COMMENT_DATETIME` timestamp NULL DEFAULT NULL COMMENT 'COMMENT_DATETIME',
+  `USER_ID` bigint(20) NOT NULL COMMENT 'USER_ID',
+  `ROOM_ID` bigint(20) NOT NULL COMMENT 'ROOM_ID',
+  PRIMARY KEY (`COMMENT_ID`),
+  KEY `USER_ID` (`USER_ID`),
+  KEY `ROOM_ID` (`ROOM_ID`),
+  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`ROOM_ID`) REFERENCES `room` (`ROOM_ID`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='COMMENT(R)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comment`
+--
+
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `like_room`
+--
+
+DROP TABLE IF EXISTS `like_room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `like_room` (
+  `LIKE_ROOM_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'LIKE_ROOM_ID',
+  `ROOM_ID` bigint(20) NOT NULL COMMENT 'ROOM_ID',
+  `LIKED_BY` varchar(255) NOT NULL COMMENT 'LIKED_BY',
+  `LIKED_DATETIME` datetime NOT NULL COMMENT 'LIKED_DATETIME',
+  PRIMARY KEY (`LIKE_ROOM_ID`),
+  KEY `ROOM_ID` (`ROOM_ID`),
+  CONSTRAINT `like_room_ibfk_1` FOREIGN KEY (`ROOM_ID`) REFERENCES `room` (`ROOM_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='LIKE_ROOM(E)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `like_room`
+--
+
+LOCK TABLES `like_room` WRITE;
+/*!40000 ALTER TABLE `like_room` DISABLE KEYS */;
+/*!40000 ALTER TABLE `like_room` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `room`
+--
+
+DROP TABLE IF EXISTS `room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `room` (
+  `ROOM_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ROOM_ID',
+  `ROOM_NAME` varchar(100) NOT NULL COMMENT 'ROOM_NAME',
+  `DETAIL` varchar(255) DEFAULT NULL COMMENT 'DETAIL',
+  PRIMARY KEY (`ROOM_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ROOM(R)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `room`
+--
+
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `s2session`
+--
+
+DROP TABLE IF EXISTS `s2session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `s2session` (
+  `SESSION_ID` varchar(255) NOT NULL COMMENT 'SESSION_ID',
+  `NAME` varchar(255) NOT NULL COMMENT 'NAME',
+  `VALUE` longblob COMMENT 'VALUE',
+  `LAST_ACCESS` timestamp NULL DEFAULT NULL COMMENT 'LAST_ACCESS',
+  PRIMARY KEY (`SESSION_ID`,`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='S2SESSION';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `s2session`
+--
+
+LOCK TABLES `s2session` WRITE;
+/*!40000 ALTER TABLE `s2session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `s2session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedule`
+--
+
+DROP TABLE IF EXISTS `schedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schedule` (
+  `SCHEDULE_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'SCHEDULE_ID',
+  `SCHEDULE_NAME` varchar(255) NOT NULL COMMENT 'SCHEDULE_NAME',
+  `START_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'START_DATETIME',
+  `END_DATETIME` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'END_DATETIME',
+  `DETAIL` text COMMENT 'DETAIL',
+  `ROOM_ID` bigint(20) NOT NULL COMMENT 'ROOM_ID',
+  PRIMARY KEY (`SCHEDULE_ID`),
+  KEY `ROOM_ID` (`ROOM_ID`),
+  CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`ROOM_ID`) REFERENCES `room` (`ROOM_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='SCHEDULE(R)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedule`
+--
+
+LOCK TABLES `schedule` WRITE;
+/*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `USER_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'USER_ID',
+  `USER_NAME` varchar(255) DEFAULT NULL COMMENT 'USER_NAME',
+  `PASSWORD` varchar(255) DEFAULT NULL COMMENT 'PASSWORD',
+  `SALT` varchar(255) DEFAULT NULL COMMENT 'SALT',
+  `IS_ADMIN` tinyint(1) DEFAULT NULL COMMENT 'IS_ADMIN',
+  PRIMARY KEY (`USER_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='USER(R)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'admin','824948bb6dce5d4aea9db93fa53f7797','q<M)gwCac(',1),(2,'guest','0e71aae66f3d5d8d6d60af8aa4aabfa0','{(\"}r0BU$~',0);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-02-24 19:04:11

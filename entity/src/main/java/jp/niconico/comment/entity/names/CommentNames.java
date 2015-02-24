@@ -60,21 +60,21 @@ public class CommentNames {
     }
 
     /**
-     * userのプロパティ名を返します。
-     * 
-     * @return userのプロパティ名
-     */
-    public static _UserNames user() {
-        return new _UserNames("user");
-    }
-
-    /**
      * roomのプロパティ名を返します。
      * 
      * @return roomのプロパティ名
      */
     public static _RoomNames room() {
         return new _RoomNames("room");
+    }
+
+    /**
+     * userのプロパティ名を返します。
+     * 
+     * @return userのプロパティ名
+     */
+    public static _UserNames user() {
+        return new _UserNames("user");
     }
 
     /**
@@ -156,21 +156,21 @@ public class CommentNames {
         }
 
         /**
-         * userのプロパティ名を返します。
-         * 
-         * @return userのプロパティ名
-         */
-        public _UserNames user() {
-            return new _UserNames(this, "user");
-        }
-
-        /**
          * roomのプロパティ名を返します。
          * 
          * @return roomのプロパティ名
          */
         public _RoomNames room() {
             return new _RoomNames(this, "room");
+        }
+
+        /**
+         * userのプロパティ名を返します。
+         * 
+         * @return userのプロパティ名
+         */
+        public _UserNames user() {
+            return new _UserNames(this, "user");
         }
     }
 }

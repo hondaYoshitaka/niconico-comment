@@ -3,6 +3,7 @@ package jp.niconico.comment.entity.names;
 import javax.annotation.Generated;
 import jp.niconico.comment.entity.Room;
 import jp.niconico.comment.entity.names.CommentNames._CommentNames;
+import jp.niconico.comment.entity.names.LikeRoomNames._LikeRoomNames;
 import jp.niconico.comment.entity.names.ScheduleNames._ScheduleNames;
 import org.seasar.extension.jdbc.name.PropertyName;
 
@@ -47,6 +48,15 @@ public class RoomNames {
      */
     public static _CommentNames commentList() {
         return new _CommentNames("commentList");
+    }
+
+    /**
+     * likeRoomListのプロパティ名を返します。
+     * 
+     * @return likeRoomListのプロパティ名
+     */
+    public static _LikeRoomNames likeRoomList() {
+        return new _LikeRoomNames("likeRoomList");
     }
 
     /**
@@ -125,6 +135,15 @@ public class RoomNames {
          */
         public _CommentNames commentList() {
             return new _CommentNames(this, "commentList");
+        }
+
+        /**
+         * likeRoomListのプロパティ名を返します。
+         * 
+         * @return likeRoomListのプロパティ名
+         */
+        public _LikeRoomNames likeRoomList() {
+            return new _LikeRoomNames(this, "likeRoomList");
         }
 
         /**

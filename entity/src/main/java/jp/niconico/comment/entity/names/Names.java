@@ -3,12 +3,14 @@ package jp.niconico.comment.entity.names;
 import javax.annotation.Generated;
 import jp.niconico.comment.entity.BannedWord;
 import jp.niconico.comment.entity.Comment;
+import jp.niconico.comment.entity.LikeRoom;
 import jp.niconico.comment.entity.Room;
 import jp.niconico.comment.entity.S2session;
 import jp.niconico.comment.entity.Schedule;
 import jp.niconico.comment.entity.User;
 import jp.niconico.comment.entity.names.BannedWordNames._BannedWordNames;
 import jp.niconico.comment.entity.names.CommentNames._CommentNames;
+import jp.niconico.comment.entity.names.LikeRoomNames._LikeRoomNames;
 import jp.niconico.comment.entity.names.RoomNames._RoomNames;
 import jp.niconico.comment.entity.names.S2sessionNames._S2sessionNames;
 import jp.niconico.comment.entity.names.ScheduleNames._ScheduleNames;
@@ -37,6 +39,15 @@ public class Names {
      */
     public static _CommentNames comment() {
         return new _CommentNames();
+    }
+
+    /**
+     * {@link LikeRoom}の名前クラスを返します。
+     * 
+     * @return LikeRoomの名前クラス
+     */
+    public static _LikeRoomNames likeRoom() {
+        return new _LikeRoomNames();
     }
 
     /**
