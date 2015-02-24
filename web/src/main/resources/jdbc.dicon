@@ -11,10 +11,10 @@
 			"com.mysql.jdbc.Driver"
 		</property>
 		<property name="URL">
-			"jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_cb80fe7f4f5a404"
+			"jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0d043c7952ffa95"
 		</property>
-		<property name="user">"bd2c2b78f6f4f7"</property>
-		<property name="password">"6cd94b60"</property>
+		<property name="user">"b7e6727be999ea"</property>
+		<property name="password">"f2eed8e0"</property>
 	</component>
 
 	<component name="connectionPool"
