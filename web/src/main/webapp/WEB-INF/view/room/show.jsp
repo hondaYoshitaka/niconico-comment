@@ -15,6 +15,13 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3">
+				<c:set var="likeUrl" value="Room#like?roomId=${room.roomId}" />
+				<a href="${ar:urlFor(likeUrl)}" class="thumbnail" style="text-align: center;">
+					<i class="fa fa-thumbs-up fa-5x"></i>
+					<br/><br/>この部屋にいいね！する
+				</a>
+			</div>
+			<div class="col-md-3">
 				<c:set var="commentInputUrl" value="Comment#input?roomId=${f:h(room.roomId)}" />
 				<a href="${ar:urlFor(commentInputUrl)}" class="thumbnail" style="text-align: center;">
 					<i class="fa fa-comments-o fa-5x"></i>

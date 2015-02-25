@@ -10,11 +10,14 @@ import javax.annotation.Resource;
 
 import jp.niconico.comment.annotation.ana.Allow;
 import jp.niconico.comment.dto.LoginDto;
+import jp.niconico.comment.entity.LikeRoom;
 import jp.niconico.comment.entity.Room;
 import jp.niconico.comment.enums.Permissions;
 import jp.niconico.comment.form.RoomForm;
+import jp.niconico.comment.service.LikeRoomService;
 import jp.niconico.comment.service.RoomService;
 import jp.niconico.comment.service.UserService;
+import jp.niconico.comment.util.DateUtil;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.struts.action.ActionMessage;
@@ -23,6 +26,7 @@ import org.seasar.framework.beans.util.BeanMap;
 import org.seasar.framework.beans.util.Beans;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
+import org.seasar.struts.util.RequestUtil;
 
 public class RoomAction {
 
@@ -35,6 +39,9 @@ public class RoomAction {
 
 	@Resource
 	protected RoomService roomService;
+
+	@Resource
+	protected LikeRoomService likeRoomService;
 
 	@Resource
 	protected UserService userService;
@@ -88,6 +95,20 @@ public class RoomAction {
 		return "show.jsp";
 	}
 
+	@Allow(permission = Permissions.LOGIN)
+	@Execute(validate = "validateBeforeLike", input = "/", redirect = true)
+	public String like() {
+		LikeRoom like = Beans.createAndCopy(LikeRoom.class, form).execute();
+
+		String sessionId = RequestUtil.getRequest().getSession().getId();
+		like.likedBy = sessionId;
+		like.likedDatetime = DateUtil.getCurrentTimestamp();
+
+		likeRoomService.insert(like);
+
+		return urlFor("Index", "index");
+	}
+
 	/**
 	 * ルーム名が重複していないか検証します。
 	 * 
@@ -116,6 +137,26 @@ public class RoomAction {
 		Room room = roomService.findById(toLong(form.roomId));
 		if (room == null) {
 			throw new RuntimeException("ルームが見つかりません。id:" + form.roomId);
+		}
+		return errors;
+	}
+
+	public ActionMessages validateBeforeLike() {
+		ActionMessages errors = new ActionMessages();
+
+		Room room = roomService.findById(toLong(form.roomId));
+		if (room == null) {
+			throw new RuntimeException("ルームが見つかりません。id:" + form.roomId);
+		}
+		BeanMap conditions = new BeanMap();
+
+		conditions.put("roomId", form.roomId);
+		String sessionId = RequestUtil.getRequest().getSession().getId();
+		conditions.put("likedBy", sessionId);
+
+		List<LikeRoom> likes = likeRoomService.findByCondition(conditions);
+		if (CollectionUtils.isNotEmpty(likes)) {
+			errors.add(GLOBAL_MESSAGE, new ActionMessage("既に いいね！をしています。", false));
 		}
 		return errors;
 	}

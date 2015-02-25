@@ -12,7 +12,7 @@
 						<a href="${ar:urlFor(roomShowUrl)}" class="list-group-item">
 							<div class="title">
 								${f:h(room.roomName)}
-								<label class="label label-info pull-right like-room" data-room-id="${f:h(room.roomId)}">
+								<label class="label label-info pull-right label-like-room" data-room-id="${f:h(room.roomId)}">
 									<i class="fa fa-thumbs-up"></i>
 									${fn:length(room.likeRoomList)}
 								</label>
