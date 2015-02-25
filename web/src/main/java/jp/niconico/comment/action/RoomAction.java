@@ -50,7 +50,6 @@ public class RoomAction {
 	@Allow(permission = Permissions.ADMIN)
 	@Execute(validate = "validateDuplicateName", input = "input", redirect = true)
 	public String create() {
-		System.out.println(form.roomName);
 		Room room = Beans.createAndCopy(Room.class, form).execute();
 		roomService.insert(room);
 
