@@ -34,6 +34,7 @@ public class RoomService extends AbstractService<Room> {
      */
     public List<Room> findAllOrderById() {
         return select()
+        		.leftOuterJoin(likeRoomList())
         		.orderBy(desc(roomId()))
         		.getResultList();
     }
