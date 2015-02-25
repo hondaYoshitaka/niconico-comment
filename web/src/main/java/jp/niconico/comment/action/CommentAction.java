@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.niconico.comment.annotation.ana.Allow;
 import jp.niconico.comment.dto.CommentCsvDto;
+import jp.niconico.comment.dto.CommentDto;
 import jp.niconico.comment.dto.LoginDto;
 import jp.niconico.comment.entity.Comment;
 import jp.niconico.comment.entity.Room;
@@ -30,6 +31,7 @@ import jp.niconico.comment.service.UserService;
 import jp.niconico.comment.util.DateUtil;
 import net.arnx.jsonic.JSON;
 
+import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionMessages;
 import org.seasar.extension.jdbc.IterationCallback;
@@ -96,9 +98,7 @@ public class CommentAction {
 	public String list() {
 		room = roomService.findById(toLong(form.roomId));
 		comments = commentService.findAllInRoom(toLong(form.roomId));
-		for (Comment comment : comments) {
-			comment.comment = commentLogic.maskBannedWord(comment.comment);
-		}
+
 		latestCommentId = commentLogic.findLatestCommentId(toLong(form.roomId));
 
 		return "list.jsp";
@@ -117,7 +117,8 @@ public class CommentAction {
 			BeanMap map = new BeanMap();
 
 			map.put("id", StringConversionUtil.toString(com.commentId));
-			map.put("comment", commentLogic.maskBannedWord(com.comment));
+			CommentDto comment = (CommentDto) SerializationUtils.deserialize(com.comment);
+			map.put("comment", commentLogic.maskBannedWord(comment.comment));
 			map.put("date", sdf.format(com.commentDatetime));
 			results.add(map);
 		}
@@ -136,7 +137,12 @@ public class CommentAction {
 	@Allow(permission = Permissions.LOGIN)
 	@Execute(validate = "validateBeforeCreate", input = "input")
 	public String create() {
-		Comment comment = Beans.createAndCopy(Comment.class, form).execute();
+		Comment comment = Beans.createAndCopy(Comment.class, form).excludes("comment").execute();
+
+		CommentDto dto = new CommentDto();
+		dto.comment = form.comment;
+		comment.comment = SerializationUtils.serialize(dto);
+
 		comment.roomId = toLong(form.roomId);
 		comment.userId = loginDto.userId;
 		comment.commentDatetime = DateUtil.getCurrentTimestamp();
