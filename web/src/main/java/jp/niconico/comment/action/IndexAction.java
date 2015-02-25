@@ -27,9 +27,6 @@ public class IndexAction {
 	public String index() {
 		rooms = roomService.findAllOrderById();
 
-		for (Room room : rooms) {
-			System.out.println("文字化けテスト: " + room.roomName);
-		}
 		return "index.jsp";
 	}
 }
