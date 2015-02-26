@@ -6,7 +6,7 @@
 			"base":{
 				color: "white",
 				speed: 8000, interval: 3000,
-				font_size: 30, loop: false
+				font_size: 45, loop: false
 			},
 			"comments":[]
 		};
