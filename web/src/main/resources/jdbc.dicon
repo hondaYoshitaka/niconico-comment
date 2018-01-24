@@ -8,13 +8,13 @@
 	<component name="xaDataSource"
 		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
 		<property name="driverClassName">
-			"com.mysql.jdbc.Driver"
+			"org.postgresql.Driver"
 		</property>
 		<property name="URL">
-			"jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0d043c7952ffa95?reconnect=true&amp;encoding=utf8mb4"
+			"jdbc:postgres://ec2-107-20-224-137.compute-1.amazonaws.com:5432/dh85lfr277613"
 		</property>
-		<property name="user">"b7e6727be999ea"</property>
-		<property name="password">"f2eed8e0"</property>
+		<property name="user">"hhdrvkjmpidcau"</property>
+		<property name="password">"ae9c0aec18094f1644faa909a3102f310f887032762de71b37afa843f7eaccf6"</property>
 	</component>
 
 	<component name="connectionPool"
