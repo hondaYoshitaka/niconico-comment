@@ -34,7 +34,7 @@ public class Comment implements Serializable {
 	/** COMMENT */
 	@Lob
 	@Column(length = 2147483647, nullable = false, unique = false)
-	public byte[] comment;
+	public String comment;
 
 	/** COMMENT_DATETIME */
 	@Column(nullable = true, unique = false)

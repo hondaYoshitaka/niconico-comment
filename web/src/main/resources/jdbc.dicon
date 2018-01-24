@@ -11,7 +11,7 @@
 			"com.mysql.jdbc.Driver"
 		</property>
 		<property name="URL">
-			"jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0d043c7952ffa95"
+			"jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0d043c7952ffa95?reconnect=true&encoding=utf8mb4"
 		</property>
 		<property name="user">"b7e6727be999ea"</property>
 		<property name="password">"f2eed8e0"</property>
@@ -19,8 +19,8 @@
 
 	<component name="connectionPool"
 		class="org.seasar.extension.dbcp.impl.ConnectionPoolImpl">
-		<property name="timeout">600</property>
-		<property name="maxPoolSize">10</property>
+		<property name="timeout">3000</property>
+		<property name="maxPoolSize">15</property>
 		<property name="allowLocalTx">true</property>
 		<destroyMethod name="close"/>
 	</component>

@@ -17,6 +17,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.seasar.framework.aop.annotation.RemoveSession;
 import org.seasar.framework.beans.util.Beans;
+import org.seasar.framework.util.StringUtil;
 import org.seasar.framework.util.tiger.CollectionsUtil;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
@@ -77,6 +78,10 @@ public class LoginAction {
 		if (user == null) {
 			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.login"));
 		}
+		if (StringUtil.isEmpty(user.userName) || StringUtil.isEmpty(user.password) ) {
+			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.login"));
+		}
+
 		boolean isCorrectPassword = PasswordLogic.isCorrectPassword(user.password, form.password, user.salt);
 		if (!isCorrectPassword) {
 			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.login"));

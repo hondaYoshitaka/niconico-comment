@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,12 +21,12 @@
 
 DROP TABLE IF EXISTS `banned_word`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `banned_word` (
   `BANNED_WORD_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'BANNED_WORD_ID',
   `WORD` varchar(255) DEFAULT NULL COMMENT 'WORD',
   PRIMARY KEY (`BANNED_WORD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8 COMMENT='BANNED_WORD(R)';
+) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8mb4 COMMENT='BANNED_WORD(R)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,10 +45,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment` (
   `COMMENT_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'COMMENT_ID',
-  `COMMENT` longblob NOT NULL COMMENT 'COMMENT',
+  `COMMENT` varchar(255) NOT NULL COMMENT 'COMMENT',
   `COMMENT_DATETIME` timestamp NULL DEFAULT NULL COMMENT 'COMMENT_DATETIME',
   `USER_ID` bigint(20) NOT NULL COMMENT 'USER_ID',
   `ROOM_ID` bigint(20) NOT NULL COMMENT 'ROOM_ID',
@@ -57,7 +57,7 @@ CREATE TABLE `comment` (
   KEY `ROOM_ID` (`ROOM_ID`),
   CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`ROOM_ID`) REFERENCES `room` (`ROOM_ID`),
   CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='COMMENT(R)';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='COMMENT(R)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `like_room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `like_room` (
   `LIKE_ROOM_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'LIKE_ROOM_ID',
   `ROOM_ID` bigint(20) NOT NULL COMMENT 'ROOM_ID',
@@ -84,7 +84,7 @@ CREATE TABLE `like_room` (
   PRIMARY KEY (`LIKE_ROOM_ID`),
   KEY `ROOM_ID` (`ROOM_ID`),
   CONSTRAINT `like_room_ibfk_1` FOREIGN KEY (`ROOM_ID`) REFERENCES `room` (`ROOM_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='LIKE_ROOM(E)';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='LIKE_ROOM(E)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,13 +102,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `room` (
   `ROOM_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ROOM_ID',
   `ROOM_NAME` varchar(100) NOT NULL COMMENT 'ROOM_NAME',
   `DETAIL` varchar(255) DEFAULT NULL COMMENT 'DETAIL',
   PRIMARY KEY (`ROOM_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ROOM(R)';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ROOM(R)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `s2session`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `s2session` (
   `SESSION_ID` varchar(255) NOT NULL COMMENT 'SESSION_ID',
   `NAME` varchar(255) NOT NULL COMMENT 'NAME',
@@ -151,7 +151,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `schedule`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schedule` (
   `SCHEDULE_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'SCHEDULE_ID',
   `SCHEDULE_NAME` varchar(255) NOT NULL COMMENT 'SCHEDULE_NAME',
@@ -162,7 +162,7 @@ CREATE TABLE `schedule` (
   PRIMARY KEY (`SCHEDULE_ID`),
   KEY `ROOM_ID` (`ROOM_ID`),
   CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`ROOM_ID`) REFERENCES `room` (`ROOM_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='SCHEDULE(R)';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='SCHEDULE(R)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,15 +180,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `USER_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'USER_ID',
   `USER_NAME` varchar(255) DEFAULT NULL COMMENT 'USER_NAME',
   `PASSWORD` varchar(255) DEFAULT NULL COMMENT 'PASSWORD',
   `SALT` varchar(255) DEFAULT NULL COMMENT 'SALT',
   `IS_ADMIN` tinyint(1) DEFAULT NULL COMMENT 'IS_ADMIN',
+  `EXPIRED_AT` TIMESTAMP  NOT NULL DEFAULT NULL COMMENT 'EXPIRED_AT',
   PRIMARY KEY (`USER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='USER(R)';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='USER(R)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

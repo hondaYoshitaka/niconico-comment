@@ -5,7 +5,7 @@
 	var obj = {
 			"base":{
 				color: "white",
-				speed: 8000, interval: 3000,
+				speed: 4000, interval: 3000,
 				font_size: 45, loop: false
 			},
 			"comments":[]
