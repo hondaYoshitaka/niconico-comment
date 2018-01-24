@@ -1,6 +1,7 @@
 package jp.niconico.comment.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.List;
 import javax.annotation.Generated;
 import javax.persistence.Column;
@@ -43,6 +44,10 @@ public class User implements Serializable {
     /** IS_ADMIN */
     @Column(nullable = true, unique = false)
     public Boolean isAdmin;
+
+    /** 有効期限 */
+    @Column(nullable = false, unique = false)
+    public Timestamp expiredAt;
 
     /** commentList関連プロパティ */
     @OneToMany(mappedBy = "user")

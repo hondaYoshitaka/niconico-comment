@@ -5,6 +5,8 @@ import jp.niconico.comment.entity.User;
 import jp.niconico.comment.entity.names.CommentNames._CommentNames;
 import org.seasar.extension.jdbc.name.PropertyName;
 
+import java.sql.Timestamp;
+
 /**
  * {@link User}のプロパティ名の集合です。
  * 
@@ -56,6 +58,11 @@ public class UserNames {
     public static PropertyName<Boolean> isAdmin() {
         return new PropertyName<Boolean>("isAdmin");
     }
+
+    public static PropertyName<Timestamp> expiredAt() {
+        return new PropertyName<Timestamp>("expiredAt");
+    }
+
 
     /**
      * commentListのプロパティ名を返します。

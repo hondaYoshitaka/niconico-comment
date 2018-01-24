@@ -12,6 +12,7 @@ import jp.niconico.comment.form.LoginForm;
 import jp.niconico.comment.logic.PasswordLogic;
 import jp.niconico.comment.service.UserService;
 
+import jp.niconico.comment.util.DateUtil;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.seasar.framework.aop.annotation.RemoveSession;
@@ -19,6 +20,8 @@ import org.seasar.framework.beans.util.Beans;
 import org.seasar.framework.util.tiger.CollectionsUtil;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
+
+import java.sql.Timestamp;
 
 public class LoginAction {
 	@ActionForm
@@ -45,7 +48,8 @@ public class LoginAction {
 	
 	@Execute(validate = "validateLogin", input = "input", redirect = true)
 	public String login() {
-		User user = userService.findByName(form.userName);
+		final User user = userService.findByName(form.userName);
+
 		Beans.copy(user, loginDto).execute();
 		
 		// grant Permissions
@@ -68,8 +72,8 @@ public class LoginAction {
 	
 	public ActionMessages validateLogin() {
 		ActionMessages errors = new ActionMessages();
-		
-		User user = userService.findByName(form.userName);
+
+		final User user = userService.findByName(form.userName);
 		if (user == null) {
 			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.login"));
 		}
@@ -77,7 +81,13 @@ public class LoginAction {
 		if (!isCorrectPassword) {
 			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.login"));
 		}
-		
+
+		final Timestamp currentTimestamp = DateUtil.getCurrentTimestamp();
+		final boolean isExpired = user.expiredAt.before(currentTimestamp);
+		if (isExpired){
+			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.login"));
+		}
+
 		return errors;
 	}
 }
