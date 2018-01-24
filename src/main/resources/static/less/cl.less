@@ -1,0 +1,266 @@
+/****** cl画面での共通スタイル *****/
+@import "base";
+@import "color";
+
+@base:#FCEDE2;    // 70%
+@main:#ffffff;    // 25%
+@accent:#F7862D;  //  5%
+
+@font-color:darken(@base, 65%);
+
+body{
+	color: @font-color;
+	font-family: "メイリオ", Meiryo,"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
+	background: @base;
+	background: radial-gradient(ellipse at left top, lighten(@base, 2%), darken(@base, 5%));
+
+	&.radial-gradient{
+		background: radial-gradient(ellipse closest-side, lighten(@base, 5%), @base);
+	}
+}
+header{
+	background: @main;
+	padding: 15px 0;
+	margin-bottom: 10px;
+
+	.navbar{
+		margin: 5px 0 0;
+		a.brand{
+			padding: 0;
+		}
+		.navbar-inner{
+			min-height: 30px;
+		}
+	}
+}
+footer{
+	background: darken(@main, 5%);
+	color: @base;
+}
+section{
+	background: lighten(@base, 4%);
+	border:1px solid darken(@base, 15%);
+	.box-sizing(border-box);
+	.zurui-sen(rgba(187,187,187,.05));
+}
+a{
+  color: @font-color;
+  &:hover{
+    text-decoration: none;
+  }
+  &.thumbnail{
+    &:hover{
+      border-color: @main;
+    }
+  }
+}
+h1,h2,h3,h4,h5,h6{
+  margin-top: 7px;
+}
+
+button.btn,
+a.btn{
+  &.btn-primary,
+  &.btn-mark{
+    color :@base;
+    background-color: @accent;
+    border: none;
+    .text-shadow(none);
+    &:hover{
+      background-color: lighten(@accent,10%);
+    }
+    &:active,
+    &:active:hover,
+    &:visited,
+    &.disabled{
+      background-color: darken(@accent, 5%);
+    }
+  }
+  &.btn-search{
+    width: 200px;
+  }
+}
+table.table {
+    th.required:after{
+      content:"(必須)";
+      color: @red;
+    }
+}
+form{
+  &.form-search {
+    margin-bottom: 10px;
+  }
+  input.form-control,
+  select.form-control{
+    &.width-100 {
+      width: 100px;
+    }
+    &.width-150 {
+      width: 150px;
+    }
+    &.width-300 {
+      width: 300px;
+    }
+  }
+}
+#comment-stamp-area{
+  margin-top: 5px;
+}
+#comment-stamp-list{
+  padding-left: 0;
+  list-style: none;
+  >li{
+    background: @white;
+    border: 1px solid lighten(@accent, 10%);
+    display:block;
+    text-align: center;
+
+    .fa-description{
+      display: block;
+    }
+  }
+}
+.logo-font{
+	font-family: 'Audiowide';
+	letter-spacing: 2px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 @white;
+
+	&:hover{
+	 color: @font-color;
+	}
+}
+
+.font-1s{
+  font-size: 12px;
+}
+.font-1x{
+  font-size: 20px;
+}
+.font-2x{
+  font-size: 30px;
+}
+.font-3x{
+  font-size: 40px;
+}
+.font-4x{
+  font-size: 50px;
+}
+.font-5x{
+  font-size: 65px;
+}
+.color-accent{
+  color: @accent;
+}
+.thumbnail{
+  background: lighten(@base, 7%);
+  color: darken(@accent, 20%);
+  .zurui-sen(rgba(187,187,187,.1));
+  .fa{
+    color: @accent;
+  }
+  &:hover{
+    text-decoration: none;
+  }
+}
+.list-group{
+  .list-group-item{
+    border-left: 3px solid @accent;
+    margin-bottom: 3px;
+    min-height: 70px;
+
+    .title{
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    .detail{
+      font-size: 12px;
+      color: lighten(@clouds, 5%);
+    }
+  }
+}
+
+.schedule-list{
+  padding-left: 0;
+  list-style: none;
+  li{
+    margin-top: 10px;
+
+    .schedule-content{
+      background: @white;
+      border-left: 3px solid @accent;
+      height: 180px;
+      max-height: 180px;
+      position: relative;
+      padding: 0 5px 0 10px;
+
+      .schedule-title{
+        margin: 0;
+        padding: 10px 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .schedule-time{
+        color: @clouds;
+        font-size: .8em;
+      }
+      .schedule-detail{
+        height: 60px;
+        margin-top: 10px;
+        overflow: scroll;
+      }
+      .operation-link-area{
+        bottom: 5px;
+        margin-left: 5px;
+        position: absolute;
+        a + a{
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+.pager.comment-preset{
+  margin: 3px 0;
+  .btn-auto-comment{
+    background: @accent;
+    color: @white;
+    .fa{
+      margin-right: 2px;
+    }
+  }
+}
+.position-bottom{
+  position: absolute;
+  bottom: 5px;
+}
+.room-show-title{
+  border-left: 4px solid #9EB997;
+  padding-left: 10px;
+}
+.room-show-detail{
+  color: #C7B08C;
+  line-height: .9em;
+  margin: 15px 0 10px 10px;
+}
+.room-guide{
+  border-bottom: 1px solid #DDD;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+}
+
+@media(min-width: 1200px){
+	.container.wide-container{
+		width:1170px;
+	}
+}
+@media(max-width: 768px){
+  #comment-stamp-list{
+    >li{
+     .fa-description{
+        font-size: 10px;
+      }
+    }
+  }
+}
