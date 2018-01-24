@@ -11,7 +11,7 @@
 			"org.postgresql.Driver"
 		</property>
 		<property name="URL">
-			"jdbc:postgres://ec2-107-20-224-137.compute-1.amazonaws.com:5432/dh85lfr277613"
+			"jdbc:postgresql://ec2-107-20-224-137.compute-1.amazonaws.com:5432/dh85lfr277613"
 		</property>
 		<property name="user">"hhdrvkjmpidcau"</property>
 		<property name="password">"ae9c0aec18094f1644faa909a3102f310f887032762de71b37afa843f7eaccf6"</property>
