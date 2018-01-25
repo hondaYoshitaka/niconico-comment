@@ -7,14 +7,10 @@
 	<!-- MySQL -->
 	<component name="xaDataSource"
 		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
-		<property name="driverClassName">
-			"org.postgresql.Driver"
-		</property>
-		<property name="URL">
-			"jdbc:postgresql://ec2-107-20-224-137.compute-1.amazonaws.com:5432/dh85lfr277613"
-		</property>
-		<property name="user">"hhdrvkjmpidcau"</property>
-		<property name="password">"ae9c0aec18094f1644faa909a3102f310f887032762de71b37afa843f7eaccf6"</property>
+		<property name="driverClassName">"org.postgresql.Driver"</property>
+		<property name="URL">@System@getProperty('DATASOURCE_URL')</property>
+		<property name="user">@System@getProperty('DATASOURCE_USER')</property>
+		<property name="password">@System@getProperty('DATASOURCE_PASSWORD')</property>
 	</component>
 
 	<component name="connectionPool"
@@ -25,7 +21,5 @@
 		<destroyMethod name="close"/>
 	</component>
 
-	<component name="DataSource"
-		class="org.seasar.extension.dbcp.impl.DataSourceImpl"
-	/>
+	<component name="DataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl" />
 </components>
