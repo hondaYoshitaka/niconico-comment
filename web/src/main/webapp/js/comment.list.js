@@ -5,37 +5,37 @@
 	var obj = {
 			"base":{
 				color: "white",
-				speed: 4000, interval: 3000,
+				speed: 12000, interval: 3000,
 				font_size: 45, loop: false
 			},
 			"comments":[]
 		};
 	nicoscreen.set(obj);
 	nicoscreen.start();
-	
+
 	setInterval(function(){
 		// ajax通信の返答待ちの場合、終了までskip
 		if(isProcessing){ return; }
 		isProcessing = true;
-		
+
 		$.getJSON(searchUrl, {
 				'commentId' : $('#nicoscreen').attr('data-latest-comment-id')
 			})
 			.done(function(json){
 				if(!json){ return; }
-				
+
 				for(var key in json){
 					var newComment = json[key].comment,
 						newId = json[key].id,
 						newDate = json[key].date;
 					nicoscreen.add(newComment);
-					
+
 					var tr = $('<tr/>'), td = $('<td/>');
 					tr.append(td.clone().text(newId));
 					tr.append(td.clone().text(newComment));
 					tr.append(td.clone().text(newDate));
 					commentList.append(tr);
-					
+
 					if( !!$('#auto-scroll').prop('checked') ){
 						var height = commentList.height();
 						commentList.parent().animate({ scrollTop: height }, 500);
