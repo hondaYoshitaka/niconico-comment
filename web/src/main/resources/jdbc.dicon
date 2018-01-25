@@ -8,9 +8,9 @@
 	<component name="xaDataSource"
 		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
 		<property name="driverClassName">"org.postgresql.Driver"</property>
-		<property name="URL">@System@getProperty('DATASOURCE_URL')</property>
-		<property name="user">@System@getProperty('DATASOURCE_USER')</property>
-		<property name="password">@System@getProperty('DATASOURCE_PASSWORD')</property>
+		<property name="URL">@System@getenv('DATASOURCE_URL')</property>
+		<property name="user">@System@getenv('DATASOURCE_USER')</property>
+		<property name="password">@System@getenv('DATASOURCE_PASSWORD')</property>
 	</component>
 
 	<component name="connectionPool"
