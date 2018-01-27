@@ -50,11 +50,10 @@ public class S2sessionService extends AbstractService<S2session> {
 	 * @return
 	 */
 	public int deleteAllExpired(Timestamp currentDatetime, Long maxAge) {
-		Map<String, String> param = new HashMap<String, String>();
+		Map<String, Object> param = new HashMap<>();
 		
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 		Timestamp expired = new Timestamp(currentDatetime.getTime() - maxAge);
-		param.put("expiredDatetime", df.format(expired));
+		param.put("expiredDatetime", expired);
 		
 		return updateBySqlFile("deleteAllExpired.sql", param).execute();
 	}

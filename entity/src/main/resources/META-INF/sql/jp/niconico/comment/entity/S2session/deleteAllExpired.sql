@@ -1,3 +1,3 @@
 DELETE FROM S2session as T1_
 
-WHERE T1_.LAST_ACCESS < /*expiredDatetime*/1;
+WHERE T1_.LAST_ACCESS < CAST(/*expiredDatetime*/'2000-01-01 00:00:00.000' as TIMESTAMP);

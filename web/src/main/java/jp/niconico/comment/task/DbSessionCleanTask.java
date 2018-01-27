@@ -1,6 +1,7 @@
 package jp.niconico.comment.task;
 
 import java.sql.Timestamp;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
@@ -25,7 +26,7 @@ public class DbSessionCleanTask {
 
 	private static final Logger logger = Logger.getLogger(DbSessionCleanTask.class);
 	/** 有効期限 (ms) */
-	private static final Long SESSION_MAX_AGE = 3L * 60L * 60L * 1000L;
+	private static final Long SESSION_MAX_AGE = TimeUnit.HOURS.toMillis(3);
 
 	public void doExecute() {
 		logger.info("dbsessionのクリーンを開始します。");
