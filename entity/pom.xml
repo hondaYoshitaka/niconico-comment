@@ -11,7 +11,6 @@
 	</parent>
 
 	<properties>
-		<schemaName>niconico</schemaName>
 	</properties>
 
 	<build>
@@ -34,108 +33,8 @@
 					<toDir>${project.build.directory}</toDir>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>jp.co.tis.gsp</groupId>
-				<artifactId>maven-gsp-dba-plugin</artifactId>
-				<configuration>
-					<driver>com.mysql.jdbc.Driver</driver>
-					<url>jdbc:mysql://localhost/${schemaName}</url>
-					<adminUser>root</adminUser>
-					<adminPassword>root</adminPassword>
-					<user>${schemaName}</user>
-					<password>${schemaName}</password>
-					<schema>${schemaName}</schema>
-					<rootPackage>jp.niconico.comment</rootPackage>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>dba</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>jp.co.tis.gsp</groupId>
-						<artifactId>maven-gsp-dba-plugin</artifactId>
-						<version>1.3</version>
-						<executions>
-							<execution>
-								<id>generate-ddl</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>generate-ddl</goal>
-								</goals>
-								<configuration>
-									<erdFile>src/main/resources/entity/niconico.edm</erdFile>
-								</configuration>
-							</execution>
-							<execution>
-								<id>execute-ddl</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>execute-ddl</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>generate-entity</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>generate-entity</goal>
-								</goals>
-								<configuration>
-									<ignoreTableNamePattern>(PF_.*)</ignoreTableNamePattern>
-								</configuration>
-							</execution>
-							<execution>
-								<id>generate-service</id>
-								<phase>process-classes</phase>
-								<goals>
-									<goal>generate-service</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>load-data</id>
-								<phase>pre-integration-test</phase>
-								<goals>
-									<goal>load-data</goal>
-								</goals>
-								<configuration>
-									<dataDirectory>src/test/resources/data</dataDirectory>
-								</configuration>
-							</execution>
-							<execution>
-								<id>export-schema</id>
-								<phase>install</phase>
-								<goals>
-									<goal>export-schema</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>deploy</phase>
-								<goals>
-									<goal>upload-single</goal>
-								</goals>
-								<configuration>
-									<serverId>falchion-repository</serverId>
-									<fromFile>${project.build.directory}/dump/${schemaName}.dmp</fromFile>
-									<url>dav:https://falchion/dav/GSP/</url>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<dependencies>
 
