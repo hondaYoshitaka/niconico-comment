@@ -184,6 +184,16 @@ public class CommentAction {
     }
 
     @Allow(permission = Permissions.ADMIN)
+    @Execute(validate = "validateBeforeDestroy", input = "input")
+    public String destroy() {
+        Comment comment = commentService.findById(toLong(form.commentId));
+
+        commentService.delete(comment);
+
+        return null;
+    }
+
+    @Allow(permission = Permissions.ADMIN)
     @Execute(validator = true, input = "/")
     public String statistical() {
         schedules = scheduleService.findAllOrderByStartDate(toLong(form.roomId));
@@ -246,6 +256,21 @@ public class CommentAction {
         Room room = roomService.findById(toLong(form.roomId));
         if (room == null) {
             throw new RuntimeException("ルームが存在しません。");
+        }
+        return errors;
+    }
+
+    /**
+     * destroyする前の検証を行います
+     *
+     * @return
+     */
+    public ActionMessages validateBeforeDestroy() {
+        ActionMessages errors = new ActionMessages();
+
+        Comment comment = commentService.findById(toLong(form.commentId));
+        if (comment == null) {
+            throw new RuntimeException("コメントが存在しません。");
         }
         return errors;
     }

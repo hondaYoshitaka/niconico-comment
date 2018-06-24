@@ -11,6 +11,7 @@
 		<post path="/comment/countChart/" to="countChart" />
 		<post path="/comment/findComment/" to="findComment" />
 		<get path="/comment/download/:roomId" to="download" />
+		<get path="/comment/destroy/:commentId" to="destroy" />
     </controller>
     <controller name="Login">
     	<get path="/login/" to="index" />

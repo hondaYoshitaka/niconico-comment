@@ -6,6 +6,7 @@ public class CommentForm {
 
 	public String comment;
 
+	@Required(target = "destroy")
 	public String commentId;
 
 	@Required(target = "findComment,countChart")

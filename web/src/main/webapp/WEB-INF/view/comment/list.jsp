@@ -27,16 +27,26 @@
 											<th style="width: 40px;">#</th>
 											<th>コメント</th>
 											<th style="width: 200px;">日時</th>
+											<c:if test="${isAdmin}">
+												<td style="width: 40px;">
+												</td>
+											</c:if>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="com" items="${comments}">
+											<c:set var="destroyUrl" value="Comment#destroy?commentId=${f:h(com.commentId)}" />
 											<tr>
 												<td>${f:h(com.commentId)}</td>
 												<td>${f:h(com.comment)}</td>
 												<td>
 													<fmt:formatDate value="${com.commentDatetime}" pattern="yyyy/MM/dd HH:mm:ss" />
 												</td>
+												<c:if test="${isAdmin}">
+													<td>
+														<a id="delete-comment" class="close" href="${destroyUrl}">x</a>
+													</td>
+												</c:if>
 											</tr>
 										</c:forEach>
 									</tbody>
