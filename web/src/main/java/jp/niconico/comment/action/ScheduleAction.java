@@ -102,7 +102,7 @@ public class ScheduleAction {
 
 	@Allow(permission = Permissions.ADMIN)
 	@Execute(validate = "validateBeforeDestroy", input = "list", redirect = true)
-	public String destory() {
+	public String destroy() {
 		Schedule schedule = scheduleService.findById(toLong(form.scheduleId));
 		// 削除される前にroomIdを取り出しておく
 		BeanMap params = new BeanMap();

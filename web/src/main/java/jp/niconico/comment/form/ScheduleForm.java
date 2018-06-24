@@ -11,7 +11,7 @@ import org.seasar.struts.annotation.DateType;
 import org.seasar.struts.annotation.Required;
 
 public class ScheduleForm {
-	@Required(target = "edit,update,destory")
+	@Required(target = "edit,update,destroy")
 	public String scheduleId;
 
 	@Required(target = "create")

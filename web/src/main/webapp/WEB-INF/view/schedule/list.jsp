@@ -21,7 +21,7 @@
 					<ul class="row schedule-list">
 						<c:forEach var="schedule" items="${scheduleList}">
 							<c:set var="editUrl" value="Schedule#edit?scheduleId=${f:h(schedule.scheduleId)}" />
-							<c:set var="destoryUrl" value="Schedule#destory?scheduleId=${f:h(schedule.scheduleId)}" />
+							<c:set var="destroyUrl" value="Schedule#destroy?scheduleId=${f:h(schedule.scheduleId)}" />
 							<li class="col-lg-6">
 								<div class="schedule-content">
 									<h2 class="schedule-title">
@@ -39,7 +39,7 @@
 										<a href="${ar:urlFor(editUrl)}">
 											編集する
 										</a>
-										<a href="${ar:urlFor(destoryUrl)}">
+										<a href="${ar:urlFor(destroyUrl)}">
 											削除する
 										</a>
 									</div>

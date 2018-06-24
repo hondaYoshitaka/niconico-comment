@@ -25,7 +25,7 @@
     	<post path="/schedule/create/:roomId" to="create" />
     	<get path="/schedule/edit/:scheduleId" to="edit" />
     	<post path="/schedule/update/:scheduleId" to="update" />
-    	<get path="/schedule/destory/:scheduleId" to="destory" />
+    	<get path="/schedule/destroy/:scheduleId" to="destroy" />
     </controller>
     <controller name="Room">
     	<get path="/room/:roomId" to="show" />
@@ -33,7 +33,7 @@
     	<post path="/room/create" to="create" />
     	<get path="/room/edit/:roomId" to="edit" />
     	<post path="/room/update/:roomId" to="update" />
-    	<get path="/room/destory/:roomId" to="destory" />
+    	<get path="/room/destroy/:roomId" to="destroy" />
     	<get path="/room/like/:roomId" to="like" />
     </controller>
 </routes>
