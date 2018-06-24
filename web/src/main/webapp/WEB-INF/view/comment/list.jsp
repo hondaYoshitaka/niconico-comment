@@ -27,7 +27,7 @@
 											<th style="width: 40px;">#</th>
 											<th>コメント</th>
 											<th style="width: 200px;">日時</th>
-											<c:if test="${isAdmin}">
+											<c:if test="${loginDto.isAdmin}">
 												<td style="width: 40px;">
 												</td>
 											</c:if>
@@ -42,9 +42,9 @@
 												<td>
 													<fmt:formatDate value="${com.commentDatetime}" pattern="yyyy/MM/dd HH:mm:ss" />
 												</td>
-												<c:if test="${isAdmin}">
+												<c:if test="${loginDto.isAdmin}">
 													<td>
-														<a id="delete-comment" class="close" href="${destroyUrl}">x</a>
+														<a id="delete-comment" class="close" href="${ar:urlFor(destroyUrl)}">x</a>
 													</td>
 												</c:if>
 											</tr>
