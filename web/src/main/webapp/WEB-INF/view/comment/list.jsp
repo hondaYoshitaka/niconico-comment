@@ -36,7 +36,7 @@
 									<tbody>
 										<c:forEach var="com" items="${comments}">
 											<c:set var="destroyUrl" value="Comment#destroy?commentId=${f:h(com.commentId)}" />
-											<tr>
+											<tr class="tr-comment">
 												<td>${f:h(com.commentId)}</td>
 												<td>${f:h(com.comment)}</td>
 												<td>
@@ -44,7 +44,9 @@
 												</td>
 												<c:if test="${loginDto.isAdmin}">
 													<td>
-														<a id="delete-comment" class="close" href="${ar:urlFor(destroyUrl)}">x</a>
+														<a class="delete-comment close"
+														   href="javascript:void(0);"
+														   data-delete-url="${ar:urlFor(destroyUrl)}">x</a>
 													</td>
 												</c:if>
 											</tr>
